@@ -1,9 +1,9 @@
 // Add to Filter
 function addToFilter(filter, sourceList, key, fnComparator) {
-    const selectedClass = sourceList.filter(fnComparator)
+    const selectedItem = sourceList.filter(fnComparator)
     return {
         ...filter,
-        [key]: selectedClass[0] || {},
+        [key]: selectedItem[0] || {},
     }
 }
 
