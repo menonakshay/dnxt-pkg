@@ -1,13 +1,12 @@
 {
     "name": "dnxt-pkg",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "dnxt package",
     "main": "./distribution/index.js",
     "scripts": {
         "test": "babel-node test.js",
         "build": "babel index.js --out-dir distribution",
         "prepublish": "npm run build"
-
     },
     "repository": {
         "type": "git",
