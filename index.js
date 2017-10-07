@@ -8,16 +8,20 @@ function addToFilter(filter, sourceList, key, fnComparator) {
 }
 
 // Splits key in a JSON Object
-const assignHelper = (obj, key, val) => {
+const assign = (obj, key, val) => {
+    return assignToObj(obj, val, key.split('.'))
+}
+
+
+const assignToObj = (obj, val, key) => {
     var newObj = {...obj };
 
-
-    key.split('.').reduce((a, cv, ci, arr) => arr.length == ci + 1 ? (str) =>
+    key.reduce((a, cv, ci, arr) => arr.length == ci + 1 ? (str) =>
         a[cv] = str : (a[cv] = {...a[cv] }, a[cv]), newObj)(val);
-
 
     return newObj;
 }
+
 
 const getValue = (obj, name) =>
     name.split('.').reduce((a, cv) => (a || {})[cv], obj) || ''
@@ -25,6 +29,7 @@ const getValue = (obj, name) =>
 
 module.exports = {
     addToFilter: addToFilter,
-    assign: assignHelper,
+    assign: assign,
+    assignToObj: assignToObj,
     getValue: getValue
 }
